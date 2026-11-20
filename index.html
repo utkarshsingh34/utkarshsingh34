@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Utkarsh Singh</title>
+<meta name="description" content="Utkarsh Singh. Vice President of AI Alignment @ Illinois, President of Effective Altruism @ Illinois, building Crosspaths. Book a 1:1.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,700;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a fixed name-and-contents column on the left, one long readable column on the right, opened by a printed window. */
+:root{
+  --paper:#f3eee0;
+  --ink:#1b1915;
+  --muted:#6b6455;
+  --rule:#d8cfb8;
+  --marigold:#b9781a;
+  --sea:#3f6880;
+  --display:"Instrument Serif","Iowan Old Style","Times New Roman",serif;
+  --body:"Newsreader","Iowan Old Style",Georgia,serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#16171c; --ink:#ece6d6; --muted:#a39c8a; --rule:#34353d; --marigold:#e0a544; --sea:#8fb4c9;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#16171c; --ink:#ece6d6; --muted:#a39c8a; --rule:#34353d; --marigold:#e0a544; --sea:#8fb4c9;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:19px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit; text-decoration-color:var(--marigold); text-decoration-thickness:1.5px; text-underline-offset:3px}
+a:hover{color:var(--marigold)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--sea); outline-offset:3px; border-radius:2px}
+
+.wrap{
+  max-width:1120px; margin:0 auto; padding:72px 24px 96px;
+  display:grid; grid-template-columns:260px minmax(0,1fr); gap:72px;
+}
+.side{position:sticky; top:72px; align-self:start; display:flex; flex-direction:column; gap:44px}
+.name{
+  font-family:var(--display); font-weight:400; font-size:68px; line-height:.86;
+  letter-spacing:-.01em; margin:0;
+}
+.name a{text-decoration:none}
+nav{display:flex; flex-direction:column; gap:6px}
+nav a{font-family:var(--display); font-size:32px; line-height:1.25; text-decoration:none}
+.side-foot{display:flex; flex-direction:column; gap:10px; font-size:16px; color:var(--muted)}
+.toggle{
+  font:inherit; color:var(--muted); background:none; border:0; padding:0; cursor:pointer;
+  text-align:left; text-decoration:underline; text-decoration-color:var(--rule); text-underline-offset:3px;
+}
+.toggle:hover{color:var(--marigold)}
+
+main{max-width:640px; display:flex; flex-direction:column; gap:30px}
+.plate{display:flex; flex-direction:column; align-items:center; gap:18px; margin:0}
+.plate canvas{width:100%; max-width:400px; height:auto; display:block}
+.plate svg{width:190px; height:auto; color:var(--ink)}
+.plate figcaption{font-size:15px; color:var(--muted); font-style:italic; text-align:center}
+
+section{display:flex; flex-direction:column; gap:14px; scroll-margin-top:40px}
+h2{font-family:var(--body); font-weight:700; font-size:28px; line-height:1.1; letter-spacing:-.01em; margin:4px 0 2px; text-wrap:balance}
+h2 small{font-family:var(--body); font-size:16px; color:var(--muted); font-style:italic; margin-left:10px; white-space:nowrap}
+p{margin:0}
+.lede{font-size:22px; line-height:1.5}
+.stat{font-size:16px; font-style:italic; color:var(--muted)}
+
+.cta{display:flex; flex-wrap:wrap; gap:14px 22px; align-items:baseline}
+.button{
+  display:inline-block; font-family:var(--display); font-size:26px; line-height:1;
+  padding:12px 20px 14px; border:1.5px solid var(--ink); border-radius:2px;
+  text-decoration:none; background:var(--ink); color:var(--paper);
+}
+.button:hover{background:var(--marigold); border-color:var(--marigold); color:var(--paper)}
+.quiet{font-size:17px; color:var(--muted)}
+
+.list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.who{margin:0; padding-left:1.15em; line-height:1.35}
+.updated{font-style:italic; margin:10px 0 12px}
+.list li{padding:14px 0; border-top:1px solid var(--rule); display:flex; flex-direction:column; gap:4px}
+.list li:last-child{border-bottom:1px solid var(--rule)}
+.role{font-family:var(--display); font-size:26px; line-height:1.15}
+.role em{color:var(--muted); font-size:20px}
+.tag{font-size:15px; color:var(--muted); font-style:italic}
+
+.joys{font-family:var(--display); font-style:italic; font-size:26px; line-height:1.35; color:var(--sea)}
+
+footer{border-top:1px solid var(--rule); padding-top:24px; font-size:16px; color:var(--muted); display:flex; flex-wrap:wrap; gap:8px 22px}
+
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr; gap:40px; padding:40px 20px 72px}
+  .side{position:static; gap:24px}
+  .name{font-size:56px}
+  nav{flex-direction:row; flex-wrap:wrap; gap:4px 20px}
+  nav a{font-size:26px}
+  .side-foot{flex-direction:row; flex-wrap:wrap; gap:6px 18px}
+  body{font-size:18px}
+  .lede{font-size:20px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <aside class="side">
+    <h1 class="name"><a href="#top">Utkarsh<br>Singh</a></h1>
+    <nav aria-label="Links">
+      <a href="https://calendly.com/utkarsh6-illinois/30min">Meet</a>
+      <a href="https://www.linkedin.com/in/utkarsh-singh34">LinkedIn</a>
+      <a href="https://github.com/utkarshsingh34">GitHub</a>
+    </nav>
+    <div class="side-foot">
+      <button class="toggle" id="theme-toggle" type="button">dark</button>
+    </div>
+  </aside>
+
+  <main id="top">
+
+    <figure class="plate">
+      <canvas id="window" width="520" height="620" role="img" aria-label="A print of five marigolds on tall stems, in ochre and sage, breaking out of a washed blue panel with a pale gold disc behind them."></canvas>
+    </figure>
+
+    <section>
+      <p>Hello, I'm Utkarsh. I care about doing good in the world.</p>
+      <p>Artificial intelligence will be incredibly transformative and I want to ensure the transition goes well. Outside AI Safety, I enjoy chess, history, weightlifting, video games, anime, and stargazing.</p>
+    </section>
+
+    <section id="now">
+      <h2>Now</h2>
+      <ul class="who">
+        <li>Graduate student studying computer science at UIUC</li>
+        <li>Vice President, <a href="https://aialignmentillinois.org">AI Alignment @ Illinois</a></li>
+        <li>President, <a href="https://eaillinois.org">Effective Altruism @ Illinois</a></li>
+        <li>Building <a href="https://cross-paths.com">Crosspaths</a>, a 1:1 networking platform</li>
+        <li>Previously, AIxBio research, quant, and astronomy</li>
+      </ul>
+      <p class="updated">Last updated 2026-11-20</p>
+      <div class="cta">
+        <a class="button" href="https://calendly.com/utkarsh6-illinois/30min">Book a 1:1</a>
+        <span class="quiet">or write to <a href="mailto:utkarsh6@illinois.edu">utkarsh6@illinois.edu</a></span>
+      </div>
+    </section>
+
+
+  </main>
+</div>
+
+<script>
+(function(){
+  /* ---------- theme toggle ---------- */
+  var root = document.documentElement, btn = document.getElementById('theme-toggle');
+  function isDark(){
+    var t = root.getAttribute('data-theme');
+    if (t) return t === 'dark';
+    return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function label(){ btn.textContent = isDark() ? 'light' : 'dark'; }
+  try { var saved = localStorage.getItem('theme'); if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved); } catch(e){}
+  btn.addEventListener('click', function(){
+    var next = isDark() ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e){}
+    label();
+  });
+  new MutationObserver(label).observe(root, {attributes:true, attributeFilter:['data-theme']});
+  label();
+
+  /* ---------- helpers ---------- */
+  function hex(c){ return [parseInt(c.slice(1,3),16), parseInt(c.slice(3,5),16), parseInt(c.slice(5,7),16)]; }
+  function mix(a,b,t){ a=hex(a); b=hex(b); t=Math.max(0,Math.min(1,t));
+    return 'rgb('+a.map(function(v,i){return Math.round(v+(b[i]-v)*t)}).join(',')+')'; }
+
+  /* ---------- the plate: marigolds ---------- */
+  function drawWindow(){
+    var c = document.getElementById('window'), W = 520, H = 620;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    c.width = W*dpr; c.height = H*dpr;
+    var g = c.getContext('2d'); g.scale(dpr,dpr);
+    var seed = 11;
+    function rnd(){ seed = (seed*1664525 + 1013904223) % 4294967296; return seed/4294967296; }
+    var INK = 'rgba(58,46,32,', BLUE = '#b4c7cd', OCHRE = '#cfa850';
+    var PET = ['#d98a1c','#e3a32a','#cf7a1a','#e8b545','#c2661c'];
+    var GRN = ['#6f8261','#5c7052','#7f9070','#4e6148'];
+    var i, k;
+
+    /* washed blue ground with soft edges */
+    for (i = 0; i < 5; i++){
+      g.fillStyle = BLUE; g.globalAlpha = .34;
+      g.fillRect(74 + rnd()*8 - 4, 96 + rnd()*8 - 4, 372 + rnd()*8 - 4, 462 + rnd()*8 - 4);
+    }
+    g.save(); g.beginPath(); g.rect(72, 94, 376, 466); g.clip();
+    for (i = 0; i < 260; i++){
+      g.globalAlpha = .035; g.fillStyle = rnd() > .5 ? '#ffffff' : '#6f8c99';
+      g.beginPath(); g.arc(72 + rnd()*376, 94 + rnd()*466, 14 + rnd()*40, 0, 7); g.fill();
+    }
+    g.globalAlpha = .9; g.fillStyle = OCHRE; g.beginPath(); g.arc(292, 238, 118, 0, 7); g.fill();
+    for (i = 0; i < 90; i++){
+      g.globalAlpha = .05; g.fillStyle = rnd() > .5 ? '#f3e2a8' : '#a9812f';
+      g.beginPath(); g.arc(292 + (rnd()-.5)*220, 238 + (rnd()-.5)*220, 8 + rnd()*26, 0, 7); g.fill();
+    }
+    g.restore(); g.globalAlpha = 1;
+
+    var blooms = [[150,178,60],[306,118,68],[404,268,52],[232,322,46],[338,412,36]];
+    var roots  = [[214,640],[262,640],[318,640],[246,640],[290,640]];
+
+    function leaf(x, y, ang, len){
+      g.save(); g.translate(x, y); g.rotate(ang);
+      g.strokeStyle = GRN[3]; g.lineWidth = 1.6; g.beginPath(); g.moveTo(0,0); g.lineTo(len,0); g.stroke();
+      for (var j = 1; j <= 6; j++){
+        var px = len*j/6.4, s = (1 - j/9)*len*0.2;
+        [-1,1].forEach(function(sd){
+          g.save(); g.translate(px, 0); g.rotate(sd*0.95);
+          g.fillStyle = GRN[Math.floor(rnd()*3)]; g.beginPath(); g.ellipse(s*.9, 0, s, s*.34, 0, 0, 7); g.fill();
+          g.strokeStyle = INK + '.35)'; g.lineWidth = .8; g.stroke();
+          g.restore();
+        });
+      }
+      g.restore();
+    }
+
+    /* stems and leaves */
+    blooms.forEach(function(b, n){
+      var r = roots[n], cx = (b[0] + r[0])/2 + (n%2 ? 46 : -46), cy = (b[1] + r[1])/2;
+      g.lineCap = 'round';
+      g.strokeStyle = INK + '.5)'; g.lineWidth = 6.5; g.beginPath(); g.moveTo(r[0], r[1]); g.quadraticCurveTo(cx, cy, b[0], b[1]); g.stroke();
+      g.strokeStyle = GRN[n%2]; g.lineWidth = 4.5; g.beginPath(); g.moveTo(r[0], r[1]); g.quadraticCurveTo(cx, cy, b[0], b[1]); g.stroke();
+      for (k = 0; k < 3; k++){
+        var t = .28 + k*.2, u = 1 - t;
+        var lx = u*u*r[0] + 2*u*t*cx + t*t*b[0], ly = u*u*r[1] + 2*u*t*cy + t*t*b[1];
+        leaf(lx, ly, (k%2 ? -0.5 : Math.PI+0.5) + (rnd()-.5)*.5, 46 + rnd()*26);
+      }
+    });
+
+    /* blooms: ruffled rings of petals, outside in */
+    blooms.forEach(function(b){
+      var x = b[0], y = b[1], R = b[2], rings = 6;
+      g.fillStyle = INK + '.18)'; g.beginPath(); g.arc(x+3, y+4, R*1.02, 0, 7); g.fill();
+      for (var ring = 0; ring < rings; ring++){
+        var f = 1 - ring/rings, d = R*f*0.78, n = Math.round(9 + f*13), off = rnd()*6;
+        for (var p = 0; p < n; p++){
+          var a = off + p/n*Math.PI*2 + (rnd()-.5)*.18;
+          g.save(); g.translate(x + Math.cos(a)*d, y + Math.sin(a)*d); g.rotate(a);
+          g.fillStyle = PET[Math.floor(rnd()*(ring < 2 ? 4 : 5))];
+          g.beginPath(); g.ellipse(0, 0, R*(0.2 + f*0.1), R*(0.13 + f*0.06)*(0.8 + rnd()*.4), 0, 0, 7); g.fill();
+          g.strokeStyle = INK + '.38)'; g.lineWidth = .9; g.stroke();
+          g.restore();
+        }
+      }
+      g.fillStyle = PET[4]; g.beginPath(); g.arc(x, y, R*0.1, 0, 7); g.fill();
+    });
+
+    /* paper grain over everything */
+    for (i = 0; i < 6000; i++){
+      g.fillStyle = rnd() > .45 ? 'rgba(243,238,224,'+(rnd()*.22)+')' : INK + (rnd()*.08) + ')';
+      g.fillRect(rnd()*W, rnd()*H, 1.5, 1.5);
+    }
+  }
+  try { drawWindow(); } catch(e){}
+
+})();
+</script>
+</body>
+</html>
